@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+    <table>
+        <tr>
+            <th>NAME</th>
+            <th>PRICE</th>
+            <th>IN STOCK</th>
+        </tr>
+        <tr th:each="entity : ${entities}">
+            <td th:text="${entity .id}">Onions</td>
+            <td th:text="${entity .numberOfPlaces}">2.41</td>
+            <td th:text="${entity .roomNumber}">2.41</td>
+        </tr>
+    </table>
+</body>
+</html>
