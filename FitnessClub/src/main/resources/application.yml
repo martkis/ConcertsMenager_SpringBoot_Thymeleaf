@@ -6,4 +6,8 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQL94Dialect
   thymeleaf:
-    cache: false
+    cache: true
+
+management:
+  security:
+    enabled: false

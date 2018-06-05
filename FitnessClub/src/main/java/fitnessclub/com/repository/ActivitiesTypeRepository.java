@@ -5,5 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ActivitiesTypeRepository extends JpaRepository<ActivitiesType, Integer> {
+public interface ActivitiesTypeRepository extends JpaRepository<ActivitiesType, Long> {
+
 }

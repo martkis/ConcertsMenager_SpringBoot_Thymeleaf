@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories("fitnessclub.com")
 public class ComApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ComApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ComApplication.class, args);
+    }
 }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="/css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <link href="/css/style.css" rel='stylesheet' type='text/css'/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <title>Edytuj koncert</title>
+</head>
+<body>
+<div class="menu" id="menu">
+    <div class="container">
+        <div class="logo">
+            <a href="/home.html"><img src="images/logo.png" alt=""/></a>
+        </div>
+        <div class="h_menu4"><!-- start h_menu4 -->
+            <ul class="nav">
+                <li class="active"><a href="/home.html">Home</a></li>
+                <li><a href="solisci.html">Soliści</a></li>
+                <li><a href="scena.html">Sceny</a></li>
+                <li><a href="eventList.html">Lista Koncertów</a></li>
+                <li sec:authorize="isAnonymous()"><a href="/login">Zaloguj się</a></li>
+                <li sec:authorize="isAuthenticated()">
+                    <a href="/login?logout">Wyloguj się</a>
+                </li>
+                <li sec:authorize="isAnonymous()"><a href="/registration.html">Zarejestruj</a></li>
+                <li sec:authorize="hasAuthority('ADMIN')"><a href="/addEvent.html">Dodaj koncert</a></li>
+            </ul>
+        </div><!-- end h_menu4 -->
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="row" style="margin-top:20px">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        <form th:method="POST" th:action="@{/{id}/editEvent/(id=${object.id})}" th:object="${formData}">
+            <fieldset>
+                <h1>Edytuj koncert</h1>
+
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                        <label>Status koncertu(planowany, zagrany, zagrany i zaplacony )</label>
+                        <input type="text" th:field="*{status}"
+                               class="form-control" placeholder="status" required="true" autofocus="true"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+
+                        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Edytuj"/>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+</body>
+</html>

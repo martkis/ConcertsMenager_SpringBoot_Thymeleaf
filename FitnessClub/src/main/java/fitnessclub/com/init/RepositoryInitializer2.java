@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Set;
 
 @Component
 @Profile("!production")
@@ -32,12 +31,12 @@ public class RepositoryInitializer2 implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-       if(roomRepository.count() != 0 ||
-               activitiesTypeRepository.count() != 0 ||
-               userRepository.count() != 0 ||
-               eventRepository.count() != 0) {
-           return;
-       }
+        if (roomRepository.count() != 0 ||
+                activitiesTypeRepository.count() != 0 ||
+                userRepository.count() != 0 ||
+                eventRepository.count() != 0) {
+            return;
+        }
         Room room = new Room();
         room.setNumberOfPlaces(30);
         room.setRoomNumber(1);
@@ -73,6 +72,7 @@ public class RepositoryInitializer2 implements InitializingBean {
         user.setPassword(passwordEncoder.encode("passpass"));
         user.setRoles(Collections.singleton(roleUser));
         //user.setActivitiesTypes();
+
         userRepository.save(user);
 
         User user2 = new User();
@@ -82,6 +82,7 @@ public class RepositoryInitializer2 implements InitializingBean {
         user2.setPassword(passwordEncoder.encode("user"));
         user2.setRoles(Collections.singleton(roleUser));
         //user.setActivitiesTypes();
+
         userRepository.save(user2);
 
         User user3 = new User();
@@ -91,66 +92,94 @@ public class RepositoryInitializer2 implements InitializingBean {
         user3.setPassword(passwordEncoder.encode("admin"));
         user3.setRoles(Collections.singleton(roleAdmin));
         //user.setActivitiesTypes();
+
         userRepository.save(user3);
 
         ActivitiesType activitiesType = new ActivitiesType();
-        activitiesType.setCoachName("Kowalski Jan");
+        activitiesType.setSoloistName("Kowalski Jan");
         activitiesType.setName("Zumba");
         activitiesType.setUsers(Arrays.asList(user, user2));
+
         activitiesTypeRepository.save(activitiesType);
 
         ActivitiesType activitiesType1 = new ActivitiesType();
-        activitiesType1.setCoachName("Ivo Smirnoff");
+        activitiesType1.setSoloistName("Ivo Smirnoff");
         activitiesType1.setName("Aerobik");
         activitiesType1.setUsers(Arrays.asList(user2, user));
+
         activitiesTypeRepository.save(activitiesType1);
 
-     ActivitiesType activitiesType2 = new ActivitiesType();
-     activitiesType2.setCoachName("Agnieszka Mazurska");
-     activitiesType2.setName("Pool Dance");
-     activitiesType2.setUsers(Arrays.asList(user2, user));
-     activitiesTypeRepository.save(activitiesType2);
+        ActivitiesType activitiesType2 = new ActivitiesType();
+        activitiesType2.setSoloistName("Agnieszka Mazurska");
+        activitiesType2.setName("Pool Dance");
+        activitiesType2.setUsers(Arrays.asList(user2, user));
+
+        activitiesTypeRepository.save(activitiesType2);
 
         Event event = new Event();
+        event.setStatus("Zagrany i Zapłacony");
+        event.setCost(523050);
+        event.setContractor("Wlodek z Sosnowca");
         event.setActivitiesType(activitiesType);
         event.setRoom(room);
-        event.setTime((15*60)+30);
+        event.setTime((15 * 60) + 30);
         event.setDate(LocalDate.of(2018, 01, 28));
+
         eventRepository.save(event);
 
         Event event1 = new Event();
+        event1.setStatus("Zagrany i Zapłacony");
+        event1.setCost(523050);
+        event1.setContractor("Wlodek z Sosnowca");
         event1.setActivitiesType(activitiesType1);
-        event1.setRoom(room1);
-        event1.setTime((17*60)+30);
+        event1.setRoom(room2);
+        event1.setTime((15 * 60) + 30);
         event1.setDate(LocalDate.of(2018, 01, 31));
+
         eventRepository.save(event1);
 
         Event event2 = new Event();
+        event2.setStatus("Zagrany i Zapłacony");
+        event2.setCost(523050);
+        event2.setContractor("Wlodek z Sosnowca");
         event2.setActivitiesType(activitiesType1);
-        event2.setRoom(room2);
-        event2.setTime((15*60)+30);
+        event2.setRoom(room3);
+        event2.setTime((15 * 60) + 30);
         event2.setDate(LocalDate.of(2018, 01, 27));
+
         eventRepository.save(event2);
 
         Event event3 = new Event();
+        event3.setStatus("Zagrany i Zapłacony");
+        event3.setCost(523050);
+        event3.setContractor("Wlodek z Sosnowca");
         event3.setActivitiesType(activitiesType);
-        event3.setRoom(room3);
-        event3.setTime((17*60)+30);
+        event3.setRoom(room1);
+        event3.setTime((15 * 60) + 30);
         event3.setDate(LocalDate.of(2018, 02, 28));
+
         eventRepository.save(event3);
 
         Event event4 = new Event();
-        event4.setActivitiesType(activitiesType2);
-        event4.setRoom(room);
-        event4.setTime((17*60)+30);
+        event4.setActivitiesType(activitiesType);
+        event4.setStatus("Zagrany i Zapłacony");
+        event4.setCost(523050);
+        event4.setContractor("Wlodek z Sosnowca");
+        event4.setRoom(room2);
+        event4.setTime((15 * 60) + 30);
         event4.setDate(LocalDate.of(2018, 02, 28));
+
         eventRepository.save(event4);
 
         Event event5 = new Event();
-        event5.setActivitiesType(activitiesType2);
+        event5.setStatus("Zagrany i Zapłacony");
+        event5.setCost(523050);
+        event5.setContractor("Wlodek z Sosnowca");
+        event5.setActivitiesType(activitiesType);
         event5.setRoom(room1);
-        event5.setTime((15*60)+30);
+        event5.setTime((15 * 60) + 30);
         event5.setDate(LocalDate.of(2018, 02, 28));
+
         eventRepository.save(event5);
     }
 }

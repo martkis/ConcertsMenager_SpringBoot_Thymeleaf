@@ -1,12 +1,10 @@
 package fitnessclub.com.validator;
 
-import fitnessclub.com.entity.User;
 import fitnessclub.com.form.RegistrationFormModel;
 import fitnessclub.com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
-import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 @Component

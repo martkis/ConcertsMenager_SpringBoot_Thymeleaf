@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Solisci</title>
+    <link href="/css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <link href="/css/style.css" rel='stylesheet' type='text/css'/>
+</head>
+<body>
+
+<div class="menu" id="menu">
+    <div class="container">
+        <div class="logo">
+            <a href="/home.html"><img src="images/logo.png" alt=""/></a>
+        </div>
+        <div class="h_menu4"><!-- start h_menu4 -->
+            <ul class="nav">
+                <li class="active"><a href="/home.html">Home</a></li>
+                <li><a href="solisci.html">Soliści</a></li>
+                <li><a href="scena.html">Sceny</a></li>
+                <li><a href="eventList.html">Lista Koncertów</a></li>
+                <li sec:authorize="isAnonymous()"><a href="/login">Zaloguj się</a></li>
+                <li sec:authorize="isAuthenticated()">
+                    <a href="/login?logout">Wyloguj się</a>
+                </li>
+                <li sec:authorize="isAnonymous()"><a href="/registration.html">Zarejestruj</a></li>
+                <li sec:authorize="hasAuthority('ADMIN')"><a href="/addEvent.html">Dodaj koncert</a></li>
+
+            </ul>
+        </div><!-- end h_menu4 -->
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="container">
+    <!-- start content-top -->
+    <div class="row content-top">
+        <div class="col-md-5">
+            <img src="images/pic10.jpg" class="img-responsive" alt=""/>
+        </div>
+        <div class="col-md-7 ">
+            <h3>Agnieszka Mazurska</h3>
+            <p>Quos quod temporibus accusamus cupiditate dolorem. Qui omnis nihil quis velit, laborum unde voluptatum.
+                Cum sed dolore non quaerat, quos magni, ut quia nulla facere aut laborum quis ullam voluptas
+                Ab consequatur molestiae minima voluptatem praesentium sapiente quam ut commodi dolore impedit cumque
+                accusantium nisi omnis cupiditate voluptas nihil, blanditiis velit saepe fuga necessitatibus debitis
+                laborum repudiandae odio! Temporibus, accusantium!</p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <!-- start content-top -->
+    <div class="row content-top">
+        <div class="col-md-5">
+            <img src="images/pic5.jpg" class="img-responsive" alt=""/>
+        </div>
+        <div class="col-md-7 ">
+            <h3>Ivo Smirnoff</h3>
+            <p>Beatae, libero, asperiores! Quod recusandae numquam laboriosam cum maxime! Laborum consequuntur, optio
+                dolores recusandae! Assumenda illo accusamus, officia incidunt dolorem, dolores, voluptate molestias,
+                sunt debitis impedit illum sint architecto culpa.
+                Accusamus asperiores dicta voluptatibus culpa eum officia quod ullam facere itaque nesciunt vel neque
+                modi nulla harum, voluptatum id eligendi, in, ex? Voluptatum quidem repellat inventore qui aliquam,
+                facilis necessitatibus?</p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <!-- start content-top -->
+    <div class="row content-top">
+        <div class="col-md-5">
+            <img src="images/pic16.jpg" class="img-responsive" alt=""/>
+        </div>
+        <div class="col-md-7 ">
+            <h3>Jan Kowalski</h3>
+            <p>Accusamus asperiores dicta voluptatibus culpa eum officia quod ullam facere itaque nesciunt vel neque
+                modi nulla harum, voluptatum id eligendi, in, ex? Voluptatum quidem repellat inventore qui aliquam,
+                facilis necessitatibus?
+                Facere quas deleniti modi excepturi sed error quidem numquam in a omnis est maxime natus enim
+                exercitationem voluptate autem eius, iste nobis magnam dolorum voluptas tempore. Explicabo voluptate
+                fuga deleniti.</p>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

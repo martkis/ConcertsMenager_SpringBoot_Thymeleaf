@@ -24,8 +24,8 @@
     </database>
     <schema id="8" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-01-22.19:49:15.444</IntrospectionTimestamp>
-      <IntrospectionStateNumber>850</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-05-17.00:12:30.111</IntrospectionTimestamp>
+      <IntrospectionStateNumber>2774</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -44,10 +44,330 @@
     <schema id="13" parent="2" name="information_schema">
       <ObjectId>12113</ObjectId>
     </schema>
-    <sequence id="14" parent="8" name="hibernate_sequence">
-      <ObjectId>25138</ObjectId>
-      <StateNumber>850</StateNumber>
+    <sequence id="14" parent="8" name="activities_type_id_seq">
+      <ObjectId>35973</ObjectId>
+      <StateNumber>2761</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="15" parent="8" name="event_id_seq">
+      <ObjectId>35987</ObjectId>
+      <StateNumber>2763</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="16" parent="8" name="hibernate_sequence">
+      <ObjectId>36027</ObjectId>
+      <StateNumber>2768</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
     </sequence>
+    <sequence id="17" parent="8" name="kotek_user_id_seq">
+      <ObjectId>35998</ObjectId>
+      <StateNumber>2764</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="18" parent="8" name="room_id_seq">
+      <ObjectId>36019</ObjectId>
+      <StateNumber>2767</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <table id="19" parent="8" name="activities_type">
+      <ObjectId>35975</ObjectId>
+      <StateNumber>2771</StateNumber>
+    </table>
+    <table id="20" parent="8" name="activities_type_users">
+      <ObjectId>35984</ObjectId>
+      <StateNumber>2770</StateNumber>
+    </table>
+    <table id="21" parent="8" name="event">
+      <ObjectId>35989</ObjectId>
+      <StateNumber>2772</StateNumber>
+    </table>
+    <table id="22" parent="8" name="kotek_user">
+      <ObjectId>36000</ObjectId>
+      <StateNumber>2774</StateNumber>
+    </table>
+    <table id="23" parent="8" name="kotek_user_roles">
+      <ObjectId>36009</ObjectId>
+      <StateNumber>2774</StateNumber>
+    </table>
+    <table id="24" parent="8" name="role">
+      <ObjectId>36014</ObjectId>
+      <StateNumber>2773</StateNumber>
+    </table>
+    <table id="25" parent="8" name="room">
+      <ObjectId>36021</ObjectId>
+      <StateNumber>2772</StateNumber>
+    </table>
+    <column id="26" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2761</StateNumber>
+      <SequenceName>activities_type_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;activities_type_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="27" parent="19" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>2761</StateNumber>
+    </column>
+    <column id="28" parent="19" name="soloist_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>2761</StateNumber>
+    </column>
+    <index id="29" parent="19" name="activities_type_pkey">
+      <ObjectId>35982</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="30" parent="19" name="activities_type_pkey">
+      <ObjectId>35983</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>activities_type_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="31" parent="20" name="activities_type_id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2762</StateNumber>
+    </column>
+    <column id="32" parent="20" name="users_id">
+      <Position>2</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2762</StateNumber>
+    </column>
+    <foreign-key id="33" parent="20" name="fkib5n8cmfwru7g3i7x6l1vrik8">
+      <ObjectId>36034</ObjectId>
+      <ColNames>activities_type_id</ColNames>
+      <RefTableId>35975</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>activities_type</RefTableName>
+      <RefKeyName>activities_type_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="34" parent="20" name="fkmgablqsxftt7n33pa7mxrl88w">
+      <ObjectId>36029</ObjectId>
+      <ColNames>users_id</ColNames>
+      <RefTableId>36000</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>kotek_user</RefTableName>
+      <RefKeyName>kotek_user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="35" parent="21" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2763</StateNumber>
+      <SequenceName>event_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;event_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="36" parent="21" name="contractor">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>2763</StateNumber>
+    </column>
+    <column id="37" parent="21" name="cost">
+      <Position>3</Position>
+      <DataType>real|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2763</StateNumber>
+    </column>
+    <column id="38" parent="21" name="date">
+      <Position>4</Position>
+      <DataType>bytea|0</DataType>
+      <StateNumber>2763</StateNumber>
+    </column>
+    <column id="39" parent="21" name="status">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>2763</StateNumber>
+    </column>
+    <column id="40" parent="21" name="time">
+      <Position>6</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2763</StateNumber>
+    </column>
+    <column id="41" parent="21" name="activities_type_id">
+      <Position>7</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>2763</StateNumber>
+    </column>
+    <column id="42" parent="21" name="room_id">
+      <Position>8</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>2763</StateNumber>
+    </column>
+    <index id="43" parent="21" name="event_pkey">
+      <ObjectId>35996</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="44" parent="21" name="event_pkey">
+      <ObjectId>35997</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>event_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="45" parent="21" name="fko0awqdgqhe4knhxuel8brcnip">
+      <ObjectId>36039</ObjectId>
+      <ColNames>activities_type_id</ColNames>
+      <RefTableId>35975</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>activities_type</RefTableName>
+      <RefKeyName>activities_type_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="46" parent="21" name="fko2xb2v3munbkxledunsapvbqy">
+      <ObjectId>36044</ObjectId>
+      <ColNames>room_id</ColNames>
+      <RefTableId>36021</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>room</RefTableName>
+      <RefKeyName>room_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="47" parent="22" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2764</StateNumber>
+      <SequenceName>kotek_user_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;kotek_user_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="48" parent="22" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>2764</StateNumber>
+    </column>
+    <column id="49" parent="22" name="password">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>2764</StateNumber>
+    </column>
+    <column id="50" parent="22" name="surname">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>2764</StateNumber>
+    </column>
+    <column id="51" parent="22" name="username">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>2764</StateNumber>
+    </column>
+    <index id="52" parent="22" name="kotek_user_pkey">
+      <ObjectId>36007</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="53" parent="22" name="kotek_user_pkey">
+      <ObjectId>36008</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>kotek_user_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="54" parent="23" name="users_id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2765</StateNumber>
+    </column>
+    <column id="55" parent="23" name="roles_id">
+      <Position>2</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2765</StateNumber>
+    </column>
+    <index id="56" parent="23" name="kotek_user_roles_pkey">
+      <ObjectId>36012</ObjectId>
+      <ColNames>users_id
+roles_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="57" parent="23" name="kotek_user_roles_pkey">
+      <ObjectId>36013</ObjectId>
+      <ColNames>users_id
+roles_id</ColNames>
+      <UnderlyingIndexName>kotek_user_roles_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="58" parent="23" name="fkfhqj5kc4k3ww9qjy7plf3gnr5">
+      <ObjectId>36054</ObjectId>
+      <ColNames>users_id</ColNames>
+      <RefTableId>36000</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>kotek_user</RefTableName>
+      <RefKeyName>kotek_user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="59" parent="23" name="fk46pxexebnc88mrbfo9mk86xl6">
+      <ObjectId>36049</ObjectId>
+      <ColNames>roles_id</ColNames>
+      <RefTableId>36014</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>role</RefTableName>
+      <RefKeyName>role_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="60" parent="24" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2766</StateNumber>
+    </column>
+    <column id="61" parent="24" name="type">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>2766</StateNumber>
+    </column>
+    <index id="62" parent="24" name="role_pkey">
+      <ObjectId>36017</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="63" parent="24" name="role_pkey">
+      <ObjectId>36018</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>role_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="64" parent="25" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2767</StateNumber>
+      <SequenceName>room_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;room_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="65" parent="25" name="number_of_places">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2767</StateNumber>
+    </column>
+    <column id="66" parent="25" name="room_number">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2767</StateNumber>
+    </column>
+    <index id="67" parent="25" name="room_pkey">
+      <ObjectId>36025</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="68" parent="25" name="room_pkey">
+      <ObjectId>36026</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>room_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
   </database-model>
 </dataSource>

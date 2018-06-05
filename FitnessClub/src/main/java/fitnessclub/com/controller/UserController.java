@@ -1,8 +1,7 @@
 package fitnessclub.com.controller;
 
-import fitnessclub.com.entity.User;
 import fitnessclub.com.form.RegistrationFormModel;
-import fitnessclub.com.service.UserService;
+import fitnessclub.com.service.UserDetailsServiceImpl;
 import fitnessclub.com.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +14,7 @@ import javax.validation.Valid;
 @Controller
 public class UserController {
     @Autowired
-    private UserService userService;
+    private UserDetailsServiceImpl userService;
 
     @Autowired
     private UserValidator userValidator;
@@ -33,7 +32,7 @@ public class UserController {
             return "registration";
         }
 
-        userService.save(userCommand);
+//        userService.save(userCommand);
 
         return "redirect:/home";
     }

@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Data
@@ -22,7 +21,4 @@ public class User {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
-
-    @ManyToMany(cascade = CascadeType.MERGE)
-    List<ActivitiesType> activitiesTypes;
 }

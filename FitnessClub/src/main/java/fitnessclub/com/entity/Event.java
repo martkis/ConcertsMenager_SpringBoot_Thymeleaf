@@ -12,11 +12,14 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    @DateTimeFormat(iso= DateTimeFormat.ISO.DATE)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     LocalDate date;
     int time;
+    float cost; // koszt zagrania koncertu
+    String contractor; // kontrachent - strona transakcji
+    String status; // status - 1.planowany, 2.umowiony, 3.zagrany, 4.zagrany i zaplacony
     @ManyToOne(cascade = CascadeType.MERGE)
-    Room room;
+    Room room; // miejsce
     @ManyToOne()
     ActivitiesType activitiesType;
 
@@ -25,15 +28,19 @@ public class Event {
     }
 
     public int getHour() {
-      return time / 60;
+        return time / 60;
     }
 
     public void setMinute(int minute) {
-        time = getHour() + minute;
-    };
+        time = getHour() * 60 + minute;
+    }
 
-    public int getMinute(){
+    ;
+
+    public int getMinute() {
         return time % 60;
-    };
+    }
+
+    ;
 
 }

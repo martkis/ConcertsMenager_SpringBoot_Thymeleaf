@@ -6,15 +6,20 @@ import javax.validation.constraints.NotNull;
 
 @Data
 public class EventForm {
-    @NotNull
+
     int hour;
-    @NotNull
+
     int minute;
     @NotNull
     int room;
     @NotNull
-    String coachName;
+    float cost;
+    @NotNull
+    String status;
+    @NotNull
+    String contractor;
     @NotNull
     String activitiesName;
-
+    @NotNull
+    String soloistName;
 }
